@@ -1,0 +1,7 @@
+USE tienda;
+
+ALTER TABLE facturas 
+ADD cod_oficina INT(4);
+
+ALTER TABLE facturas
+ADD CONSTRAINT FK_FACTURA_COMPRADORES
