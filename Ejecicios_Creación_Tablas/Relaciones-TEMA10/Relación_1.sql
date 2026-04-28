@@ -1,9 +1,10 @@
 -- EJERCICIO 1
 
-SELECT descripcion "Descripción", cliente_no "NºCliente" 
-FROM productos p, pedidos pd
+SELECT p.descripcion "Descripción", c.nombre "Nombre Cliente"
+FROM productos p, pedidos pd, clientes c
 WHERE p.producto_no = pd.producto_no
-ORDER BY 2;
+  AND pd.cliente_no = c.cliente_no
+ORDER BY pd.cliente_no;
 
 -- EJERCICIO 2
 
@@ -20,6 +21,7 @@ FROM empleados e
 JOIN clientes c ON c.vendedor_no = e.emp_no
 JOIN pedidos pd ON pd.cliente_no = c.cliente_no
 JOIN productos pr ON pr.producto_no = pd.producto_no
+WHERE e.oficio = 'VENDEDOR' -- AÑADIDO A POSTERIORI
 GROUP BY e.apellido;
 
 /* EJERCICIO 4: Obtener los nombres de los empleados del departamento 30 que son
